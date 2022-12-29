@@ -2,7 +2,7 @@ package com.example.projecttasc.database.entity;
 
 import javax.persistence.*;
 
-@Entity(name = "user_role")
+//@Entity(name = "user_role")
 public class UserRole {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -1,13 +1,12 @@
 package com.example.projecttasc.database.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity(name = "user")
 @Data
@@ -15,7 +14,7 @@ public class User extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
-    @Column(name = "user")
+    @Column(name = "email")
     private String Email;
     @Column(name = "full_name")
     private String FullName;
@@ -29,12 +28,13 @@ public class User extends BaseEntity{
     private String Address;
     @Column(name = "username")
     private String UserName;
+//    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @Fetch(FetchMode.SELECT)
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-   private Set<Role> roles = new HashSet();
+   private Collection<Role> Roles = new ArrayList<>();
     public User() {
     }
 

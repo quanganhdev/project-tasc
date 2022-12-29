@@ -1,5 +1,6 @@
 package com.example.projecttasc.database.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.annotations.Fetch;
@@ -21,6 +22,7 @@ public class Role {
     private String Name;
     @Column(name = "status")
     private int Status;
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY)
     @Fetch(FetchMode.SELECT)
     @JoinTable(name = "user_role",
