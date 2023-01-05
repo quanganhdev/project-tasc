@@ -33,10 +33,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        customauthenfilter customauthenfilter = new customauthenfilter(authenticationManagerBean());
+        customauthenfilter.setFilterProcessesUrl("/api/login");
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.authorizeHttpRequests().anyRequest().permitAll();
-        http.addFilter(new customauthenfilter(authenticationManagerBean()));
+        http.authorizeHttpRequests().antMatchers("/login").permitAll();
+        http.authorizeHttpRequests().antMatchers("/api/cl/**").hasAnyAuthority("USER");
+        http.authorizeHttpRequests().antMatchers("/api/admin/**").hasAnyAuthority("ADMIN");
+        http.authorizeHttpRequests().anyRequest().authenticated();
+        http.addFilter(customauthenfilter);
     }
     @Bean
     @Override
