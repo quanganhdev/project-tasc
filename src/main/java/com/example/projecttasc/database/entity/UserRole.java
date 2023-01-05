@@ -1,11 +1,13 @@
 package com.example.projecttasc.database.entity;
 
-import javax.persistence.*;
+import lombok.Data;
 
-//@Entity(name = "user_role")
+import javax.persistence.*;
+@Data
+@Entity(name = "user_role")
 public class UserRole {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
     @Column(name = "user_id")
     private Long Userid;

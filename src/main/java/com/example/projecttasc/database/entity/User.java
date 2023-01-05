@@ -1,6 +1,5 @@
 package com.example.projecttasc.database.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -12,12 +11,12 @@ import java.util.*;
 @Data
 public class User extends BaseEntity{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     @Column(name = "email")
     private String Email;
     @Column(name = "full_name")
-    private String FullName;
+    private String fullName;
     @Column(name = "phone")
     private String Phone;
     @Column(name = "birthday")
@@ -27,7 +26,7 @@ public class User extends BaseEntity{
     @Column(name = "address")
     private String Address;
     @Column(name = "username")
-    private String UserName;
+    private String userName;
 //    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @Fetch(FetchMode.SELECT)
