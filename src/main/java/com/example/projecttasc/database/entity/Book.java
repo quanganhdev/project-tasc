@@ -26,14 +26,16 @@ public class Book extends BaseEntity{
     private long Categoryid;
     public Book() {
     }
-    public Book(long id, String title, Double price, String description, int status, int discount, String thumbnail,long categoryid) {
+
+    public Book(long id, String title, Double price, String description, String author, int status, int discount, String thumbnail, long categoryid) {
         Id = id;
         Title = title;
         Price = price;
         Description = description;
+        Author = author;
         Status = status;
         Discount = discount;
-        Thumbnail= thumbnail;
+        Thumbnail = thumbnail;
         Categoryid = categoryid;
     }
 }

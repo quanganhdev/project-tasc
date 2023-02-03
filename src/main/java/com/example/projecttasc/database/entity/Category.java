@@ -19,7 +19,7 @@ public class Category extends BaseEntity{
     @Column(name = "description")
     private String Description;
     @Column(name = "status")
-    private int status;
+    private int Status;
 //    @Column(name = "categoryid")
 //    private long Categoryid;
 //    @OneToMany(mappedBy = "category",fetch = FetchType.LAZY)

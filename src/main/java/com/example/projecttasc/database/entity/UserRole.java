@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 @Data
-@Entity(name = "user_role")
+@Entity(name = "")
 public class UserRole {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

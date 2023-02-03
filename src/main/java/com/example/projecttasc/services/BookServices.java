@@ -68,6 +68,7 @@ public class BookServices {
         dto.setPrice(book.getPrice());
         dto.setStatus(book.getStatus());
         dto.setDiscount(book.getDiscount());
+        dto.setThumbnail(book.getThumbnail());
         dto.setCategory(categoryRepository.findCategoryName(book.getCategoryid()));
         reponse.setData(dto);
         return reponse;
@@ -85,6 +86,7 @@ public class BookServices {
             dto.setPrice(book.getPrice());
             dto.setStatus(book.getStatus());
             dto.setDiscount(book.getDiscount());
+            dto.setThumbnail(book.getThumbnail());
             dto.setCategory(categoryRepository.findCategoryName(book.getCategoryid()));
             dtos.add(dto);
         }

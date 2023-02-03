@@ -17,4 +17,7 @@ public class BaseEntity {
     @UpdateTimestamp
     @Column(name = "update_at")
     private Date updatedAt;
+
+    public BaseEntity() {
+    }
 }
